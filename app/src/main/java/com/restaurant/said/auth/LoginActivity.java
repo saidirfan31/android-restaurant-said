@@ -60,13 +60,11 @@ public class LoginActivity extends AppCompatActivity {
                         Manifest.permission.MEDIA_CONTENT_CONTROL
                 ).withListener(new MultiplePermissionsListener() {
             @Override
-            public void
-            onPermissionsChecked(MultiplePermissionsReport report) {
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
             }
 
             @Override
-            public void
-            onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
         }).check();
     }
 
@@ -86,10 +84,10 @@ public class LoginActivity extends AppCompatActivity {
                                             response;
                                     if (res.getStatus().equals("success")) {
                                         session.setIsLogin(true);
+                                        session.setUserId(res.getLogin().getUserid());
                                         loginCheck();
                                     } else {
-                                        Toast.makeText(LoginActivity.this,
-                                                "Email atau Username Salah", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginActivity.this, "Email atau Username Salah", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                                 DialogUtils.closeDialog();
