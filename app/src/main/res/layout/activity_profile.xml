@@ -27,7 +27,7 @@
                     android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="45dp"
-                    android:src="@drawable/user" />
+                    android:src="@drawable/logo_splash" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -35,7 +35,7 @@
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="25dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -47,7 +47,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_high_quality_black_24dp" />
+                    android:src="@drawable/ico_user" />
 
                 <TextView
                     android:id="@+id/tv_name"
@@ -55,9 +55,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorText"
                     android:textStyle="bold"
-                    tools:text="Wiliam@gmail.com" />
+                    tools:text="1167050107@gmail.com" />
             </LinearLayout>
 
             <LinearLayout
@@ -70,7 +70,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
-                    android:src="@drawable/ic_high_quality_black_24dp" />
+                    android:src="@drawable/ico_id" />
 
                 <TextView
                     android:id="@+id/tv_user_id"
@@ -79,19 +79,20 @@
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
                     android:textStyle="bold"
-                    tools:text="Fadil" />
+                    tools:text="Said" />
             </LinearLayout>
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_change"
-            android:layout_width="wrap_content"
+            android:textAllCaps="false"
+            android:layout_width="190dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="35dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/btn_orange"
             android:padding="10dp"
-            android:text="Change Password"
+            android:text="Ubah Password"
             android:textColor="#fff" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

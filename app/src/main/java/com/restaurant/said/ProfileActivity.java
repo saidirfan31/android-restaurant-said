@@ -1,10 +1,13 @@
 package com.restaurant.said;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +19,8 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.restaurant.said.data.Constans;
 import com.restaurant.said.data.Session;
 import com.restaurant.said.model.LoginResponse;
+import com.restaurant.said.model.RestoranResponse;
+import com.restaurant.said.utils.DialogUtils;
 
 public class ProfileActivity extends AppCompatActivity {
     Session session;
@@ -82,4 +87,58 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_profile_account, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_create_restaurant:
+                Intent i = new Intent(ProfileActivity.this, CreateRestaurantActivity.class);
+                i.putExtra("userId", userId.getText().toString());
+                startActivity(i);
+                break;
+            case R.id.menu_delete_restaurant:
+                if (session.getUserId().isEmpty()){
+                    Toast.makeText(ProfileActivity.this,"You don't have a Restaurant", Toast.LENGTH_SHORT).show();
+                }else{
+                    deleteRestaurant(userId.getText().toString());
+                }
+                break;
+        }
+        return true;
+    }
+
+    public void deleteRestaurant(String userId) {
+        DialogUtils.openDialog(this);
+        AndroidNetworking.post(Constans.DELETE_RESTAURANT+"/"+userId)
+                .addBodyParameter("userid", userId)
+                .build()
+                .getAsObject(RestoranResponse.class, new ParsedRequestListener() {
+                    @Override
+                    public void onResponse(Object response) {
+                        if (response instanceof RestoranResponse) {
+                            RestoranResponse res = (RestoranResponse) response;
+                            if (res.getStatus().equals("success")) {
+                                Toast.makeText(ProfileActivity.this,"Berhasil menghapus restauran", Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                Toast.makeText(ProfileActivity.this,"Gagal gagal menghapus restauran", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        DialogUtils.closeDialog();
+                    }
+                    @Override
+                    public void onError(ANError anError) {
+                        Toast.makeText(ProfileActivity.this, "Terjadi kesalahan API : "+anError.getCause().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfileActivity.this, "Terjadi kesalahan API", Toast.LENGTH_SHORT).show();
+                        DialogUtils.closeDialog();
+                    }
+                });
+    }
+
 }

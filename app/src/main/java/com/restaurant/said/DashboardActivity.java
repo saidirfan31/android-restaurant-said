@@ -14,14 +14,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.restaurant.said.adapter.RestaurantAdapter;
+import com.restaurant.said.data.Constans;
 import com.restaurant.said.data.Session;
 import com.restaurant.said.model.ListRestaurantResponse;
+import com.restaurant.said.model.RestoranResponse;
+import com.restaurant.said.utils.DialogUtils;
 
 import static com.restaurant.said.data.Constans.GET_LIST_RESTAURANT;
 import static com.restaurant.said.data.Constans.GET_SEARCH_RESTAURANT;

@@ -45,20 +45,21 @@
                 android:paddingLeft="25dp">
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/ico_user" />
+                    android:src="@drawable/ico_shop" />
 
                 <EditText
-                    android:id="@+id/et_name"
+                    android:id="@+id/et_namarm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="10dp"
+                    android:hint="Nama Restaurant"
                     android:textColor="@color/colorText"
                     android:textStyle="bold"
-                    tools:text="1167050107@gmail.com" />
+                    tools:text="Nama Restaurant" />
             </LinearLayout>
 
             <LinearLayout
@@ -69,21 +70,21 @@
                 android:paddingLeft="25dp">
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/ico_password" />
+                    android:src="@drawable/ico_category" />
 
                 <EditText
-                    android:id="@+id/et_old_password"
+                    android:id="@+id/et_kategori"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:hint="Password Lama"
+                    android:hint="Kategori"
                     android:paddingLeft="10dp"
                     android:textColor="@color/colorText"
                     android:textStyle="bold"
-                    tools:text="Password Lama" />
+                    tools:text="Kategori" />
             </LinearLayout>
 
             <LinearLayout
@@ -94,26 +95,53 @@
                 android:paddingLeft="25dp">
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/ico_password" />
+                    android:src="@drawable/ico_link" />
 
                 <EditText
-                    android:id="@+id/et_new_password"
+                    android:id="@+id/et_link_foto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:hint="Password Baru"
+                    android:hint="Link Foto"
                     android:paddingLeft="10dp"
                     android:textColor="@color/colorText"
                     android:textStyle="bold"
-                    tools:text="Password Baru" />
+                    tools:text="Link Foto" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                android:paddingLeft="25dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ico_location" />
+
+                <EditText
+                    android:id="@+id/et_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:hint="Alamat"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/colorText"
+                    android:textStyle="bold"
+                    tools:text="Alamat" />
+            </LinearLayout>
+
+
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_change_profil"
+            android:id="@+id/btn_create_restaurant"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -121,7 +149,7 @@
             android:layout_marginBottom="50dp"
             android:background="@drawable/btn_orange"
             android:padding="10dp"
-            android:text="Ubah Profil"
+            android:text="Tambah Restaurant"
             android:textAllCaps="false"
             android:textColor="#fff" />
     </LinearLayout>
